@@ -72,8 +72,8 @@ static py_Type register__Vector2(py_GlobalRef mod) {
     py_Type type = py_newtype("Vector2", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Vector2__new__);
     py_bindmagic(type, __init__, Vector2__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Vector2__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "x", Vector2__get_x, Vector2__set_x);
     py_bindproperty(type, "y", Vector2__get_y, Vector2__set_y);
     return type;
@@ -148,8 +148,8 @@ static py_Type register__Vector3(py_GlobalRef mod) {
     py_Type type = py_newtype("Vector3", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Vector3__new__);
     py_bindmagic(type, __init__, Vector3__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Vector3__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "x", Vector3__get_x, Vector3__set_x);
     py_bindproperty(type, "y", Vector3__get_y, Vector3__set_y);
     py_bindproperty(type, "z", Vector3__get_z, Vector3__set_z);
@@ -239,8 +239,8 @@ static py_Type register__Vector4(py_GlobalRef mod) {
     py_Type type = py_newtype("Vector4", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Vector4__new__);
     py_bindmagic(type, __init__, Vector4__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Vector4__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "x", Vector4__get_x, Vector4__set_x);
     py_bindproperty(type, "y", Vector4__get_y, Vector4__set_y);
     py_bindproperty(type, "z", Vector4__get_z, Vector4__set_z);
@@ -499,8 +499,8 @@ static py_Type register__Matrix(py_GlobalRef mod) {
     py_Type type = py_newtype("Matrix", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Matrix__new__);
     py_bindmagic(type, __init__, Matrix__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Matrix__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "m0", Matrix__get_m0, Matrix__set_m0);
     py_bindproperty(type, "m4", Matrix__get_m4, Matrix__set_m4);
     py_bindproperty(type, "m8", Matrix__get_m8, Matrix__set_m8);
@@ -611,8 +611,8 @@ static py_Type register__Color(py_GlobalRef mod) {
     py_Type type = py_newtype("Color", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Color__new__);
     py_bindmagic(type, __init__, Color__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Color__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "r", Color__get_r, Color__set_r);
     py_bindproperty(type, "g", Color__get_g, Color__set_g);
     py_bindproperty(type, "b", Color__get_b, Color__set_b);
@@ -703,8 +703,8 @@ static py_Type register__Rectangle(py_GlobalRef mod) {
     py_Type type = py_newtype("Rectangle", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Rectangle__new__);
     py_bindmagic(type, __init__, Rectangle__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Rectangle__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "x", Rectangle__get_x, Rectangle__set_x);
     py_bindproperty(type, "y", Rectangle__get_y, Rectangle__set_y);
     py_bindproperty(type, "width", Rectangle__get_width, Rectangle__set_width);
@@ -819,8 +819,8 @@ static py_Type register__Image(py_GlobalRef mod) {
     py_Type type = py_newtype("Image", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Image__new__);
     py_bindmagic(type, __init__, Image__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Image__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "data", Image__get_data, Image__set_data);
     py_bindproperty(type, "width", Image__get_width, Image__set_width);
     py_bindproperty(type, "height", Image__get_height, Image__set_height);
@@ -936,8 +936,8 @@ static py_Type register__Texture(py_GlobalRef mod) {
     py_Type type = py_newtype("Texture", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Texture__new__);
     py_bindmagic(type, __init__, Texture__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Texture__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "id", Texture__get_id, Texture__set_id);
     py_bindproperty(type, "width", Texture__get_width, Texture__set_width);
     py_bindproperty(type, "height", Texture__get_height, Texture__set_height);
@@ -1035,8 +1035,8 @@ static py_Type register__RenderTexture(py_GlobalRef mod) {
     py_Type type = py_newtype("RenderTexture", tp_object, mod, NULL);
     py_bindmagic(type, __new__, RenderTexture__new__);
     py_bindmagic(type, __init__, RenderTexture__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", RenderTexture__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "id", RenderTexture__get_id, RenderTexture__set_id);
     py_bindproperty(type, "texture", RenderTexture__get_texture, RenderTexture__set_texture);
     py_bindproperty(type, "depth", RenderTexture__get_depth, RenderTexture__set_depth);
@@ -1173,8 +1173,8 @@ static py_Type register__NPatchInfo(py_GlobalRef mod) {
     py_Type type = py_newtype("NPatchInfo", tp_object, mod, NULL);
     py_bindmagic(type, __new__, NPatchInfo__new__);
     py_bindmagic(type, __init__, NPatchInfo__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", NPatchInfo__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "source", NPatchInfo__get_source, NPatchInfo__set_source);
     py_bindproperty(type, "left", NPatchInfo__get_left, NPatchInfo__set_left);
     py_bindproperty(type, "top", NPatchInfo__get_top, NPatchInfo__set_top);
@@ -1298,8 +1298,8 @@ static py_Type register__GlyphInfo(py_GlobalRef mod) {
     py_Type type = py_newtype("GlyphInfo", tp_object, mod, NULL);
     py_bindmagic(type, __new__, GlyphInfo__new__);
     py_bindmagic(type, __init__, GlyphInfo__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", GlyphInfo__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "value", GlyphInfo__get_value, GlyphInfo__set_value);
     py_bindproperty(type, "offsetX", GlyphInfo__get_offsetX, GlyphInfo__set_offsetX);
     py_bindproperty(type, "offsetY", GlyphInfo__get_offsetY, GlyphInfo__set_offsetY);
@@ -1438,8 +1438,8 @@ static py_Type register__Font(py_GlobalRef mod) {
     py_Type type = py_newtype("Font", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Font__new__);
     py_bindmagic(type, __init__, Font__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Font__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "baseSize", Font__get_baseSize, Font__set_baseSize);
     py_bindproperty(type, "glyphCount", Font__get_glyphCount, Font__set_glyphCount);
     py_bindproperty(type, "glyphPadding", Font__get_glyphPadding, Font__set_glyphPadding);
@@ -1572,8 +1572,8 @@ static py_Type register__Camera3D(py_GlobalRef mod) {
     py_Type type = py_newtype("Camera3D", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Camera3D__new__);
     py_bindmagic(type, __init__, Camera3D__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Camera3D__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "position", Camera3D__get_position, Camera3D__set_position);
     py_bindproperty(type, "target", Camera3D__get_target, Camera3D__set_target);
     py_bindproperty(type, "up", Camera3D__get_up, Camera3D__set_up);
@@ -1681,8 +1681,8 @@ static py_Type register__Camera2D(py_GlobalRef mod) {
     py_Type type = py_newtype("Camera2D", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Camera2D__new__);
     py_bindmagic(type, __init__, Camera2D__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Camera2D__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "offset", Camera2D__get_offset, Camera2D__set_offset);
     py_bindproperty(type, "target", Camera2D__get_target, Camera2D__set_target);
     py_bindproperty(type, "rotation", Camera2D__get_rotation, Camera2D__set_rotation);
@@ -1957,8 +1957,8 @@ static py_Type register__Mesh(py_GlobalRef mod) {
     py_Type type = py_newtype("Mesh", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Mesh__new__);
     py_bindmagic(type, __init__, Mesh__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Mesh__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "vertexCount", Mesh__get_vertexCount, Mesh__set_vertexCount);
     py_bindproperty(type, "triangleCount", Mesh__get_triangleCount, Mesh__set_triangleCount);
     py_bindproperty(type, "vertices", Mesh__get_vertices, Mesh__set_vertices);
@@ -2036,8 +2036,8 @@ static py_Type register__Shader(py_GlobalRef mod) {
     py_Type type = py_newtype("Shader", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Shader__new__);
     py_bindmagic(type, __init__, Shader__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Shader__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "id", Shader__get_id, Shader__set_id);
     py_bindproperty(type, "locs", Shader__get_locs, Shader__set_locs);
     return type;
@@ -2130,8 +2130,8 @@ static py_Type register__MaterialMap(py_GlobalRef mod) {
     py_Type type = py_newtype("MaterialMap", tp_object, mod, NULL);
     py_bindmagic(type, __new__, MaterialMap__new__);
     py_bindmagic(type, __init__, MaterialMap__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", MaterialMap__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "texture", MaterialMap__get_texture, MaterialMap__set_texture);
     py_bindproperty(type, "color", MaterialMap__get_color, MaterialMap__set_color);
     py_bindproperty(type, "value", MaterialMap__get_value, MaterialMap__set_value);
@@ -2211,8 +2211,8 @@ static py_Type register__Material(py_GlobalRef mod) {
     py_Type type = py_newtype("Material", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Material__new__);
     py_bindmagic(type, __init__, Material__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Material__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "shader", Material__get_shader, Material__set_shader);
     py_bindproperty(type, "maps", Material__get_maps, Material__set_maps);
     py_bindproperty(type, "params", Material__get_params, NULL);
@@ -2313,8 +2313,8 @@ static py_Type register__Transform(py_GlobalRef mod) {
     py_Type type = py_newtype("Transform", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Transform__new__);
     py_bindmagic(type, __init__, Transform__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Transform__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "translation", Transform__get_translation, Transform__set_translation);
     py_bindproperty(type, "rotation", Transform__get_rotation, Transform__set_rotation);
     py_bindproperty(type, "scale", Transform__get_scale, Transform__set_scale);
@@ -2371,8 +2371,8 @@ static py_Type register__BoneInfo(py_GlobalRef mod) {
     py_Type type = py_newtype("BoneInfo", tp_object, mod, NULL);
     py_bindmagic(type, __new__, BoneInfo__new__);
     py_bindmagic(type, __init__, BoneInfo__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", BoneInfo__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "name", BoneInfo__get_name, NULL);
     py_bindproperty(type, "parent", BoneInfo__get_parent, BoneInfo__set_parent);
     return type;
@@ -2556,8 +2556,8 @@ static py_Type register__Model(py_GlobalRef mod) {
     py_Type type = py_newtype("Model", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Model__new__);
     py_bindmagic(type, __init__, Model__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Model__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "transform", Model__get_transform, Model__set_transform);
     py_bindproperty(type, "meshCount", Model__get_meshCount, Model__set_meshCount);
     py_bindproperty(type, "materialCount", Model__get_materialCount, Model__set_materialCount);
@@ -2668,8 +2668,8 @@ static py_Type register__ModelAnimation(py_GlobalRef mod) {
     py_Type type = py_newtype("ModelAnimation", tp_object, mod, NULL);
     py_bindmagic(type, __new__, ModelAnimation__new__);
     py_bindmagic(type, __init__, ModelAnimation__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", ModelAnimation__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "boneCount", ModelAnimation__get_boneCount, ModelAnimation__set_boneCount);
     py_bindproperty(type, "frameCount", ModelAnimation__get_frameCount, ModelAnimation__set_frameCount);
     py_bindproperty(type, "bones", ModelAnimation__get_bones, ModelAnimation__set_bones);
@@ -2749,8 +2749,8 @@ static py_Type register__Ray(py_GlobalRef mod) {
     py_Type type = py_newtype("Ray", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Ray__new__);
     py_bindmagic(type, __init__, Ray__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Ray__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "position", Ray__get_position, Ray__set_position);
     py_bindproperty(type, "direction", Ray__get_direction, Ray__set_direction);
     return type;
@@ -2857,8 +2857,8 @@ static py_Type register__RayCollision(py_GlobalRef mod) {
     py_Type type = py_newtype("RayCollision", tp_object, mod, NULL);
     py_bindmagic(type, __new__, RayCollision__new__);
     py_bindmagic(type, __init__, RayCollision__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", RayCollision__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "hit", RayCollision__get_hit, RayCollision__set_hit);
     py_bindproperty(type, "distance", RayCollision__get_distance, RayCollision__set_distance);
     py_bindproperty(type, "point", RayCollision__get_point, RayCollision__set_point);
@@ -2937,8 +2937,8 @@ static py_Type register__BoundingBox(py_GlobalRef mod) {
     py_Type type = py_newtype("BoundingBox", tp_object, mod, NULL);
     py_bindmagic(type, __new__, BoundingBox__new__);
     py_bindmagic(type, __init__, BoundingBox__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", BoundingBox__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "min", BoundingBox__get_min, BoundingBox__set_min);
     py_bindproperty(type, "max", BoundingBox__get_max, BoundingBox__set_max);
     return type;
@@ -3051,8 +3051,8 @@ static py_Type register__Wave(py_GlobalRef mod) {
     py_Type type = py_newtype("Wave", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Wave__new__);
     py_bindmagic(type, __init__, Wave__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Wave__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "frameCount", Wave__get_frameCount, Wave__set_frameCount);
     py_bindproperty(type, "sampleRate", Wave__get_sampleRate, Wave__set_sampleRate);
     py_bindproperty(type, "sampleSize", Wave__get_sampleSize, Wave__set_sampleSize);
@@ -3168,8 +3168,8 @@ static py_Type register__AudioStream(py_GlobalRef mod) {
     py_Type type = py_newtype("AudioStream", tp_object, mod, NULL);
     py_bindmagic(type, __new__, AudioStream__new__);
     py_bindmagic(type, __init__, AudioStream__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", AudioStream__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "buffer", AudioStream__get_buffer, AudioStream__set_buffer);
     py_bindproperty(type, "processor", AudioStream__get_processor, AudioStream__set_processor);
     py_bindproperty(type, "sampleRate", AudioStream__get_sampleRate, AudioStream__set_sampleRate);
@@ -3244,8 +3244,8 @@ static py_Type register__Sound(py_GlobalRef mod) {
     py_Type type = py_newtype("Sound", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Sound__new__);
     py_bindmagic(type, __init__, Sound__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Sound__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "stream", Sound__get_stream, Sound__set_stream);
     py_bindproperty(type, "frameCount", Sound__get_frameCount, Sound__set_frameCount);
     return type;
@@ -3365,8 +3365,8 @@ static py_Type register__Music(py_GlobalRef mod) {
     py_Type type = py_newtype("Music", tp_object, mod, NULL);
     py_bindmagic(type, __new__, Music__new__);
     py_bindmagic(type, __init__, Music__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", Music__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "stream", Music__get_stream, Music__set_stream);
     py_bindproperty(type, "frameCount", Music__get_frameCount, Music__set_frameCount);
     py_bindproperty(type, "looping", Music__get_looping, Music__set_looping);
@@ -3518,8 +3518,8 @@ static py_Type register__VrDeviceInfo(py_GlobalRef mod) {
     py_Type type = py_newtype("VrDeviceInfo", tp_object, mod, NULL);
     py_bindmagic(type, __new__, VrDeviceInfo__new__);
     py_bindmagic(type, __init__, VrDeviceInfo__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", VrDeviceInfo__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "hResolution", VrDeviceInfo__get_hResolution, VrDeviceInfo__set_hResolution);
     py_bindproperty(type, "vResolution", VrDeviceInfo__get_vResolution, VrDeviceInfo__set_vResolution);
     py_bindproperty(type, "hScreenSize", VrDeviceInfo__get_hScreenSize, VrDeviceInfo__set_hScreenSize);
@@ -3615,8 +3615,8 @@ static py_Type register__VrStereoConfig(py_GlobalRef mod) {
     py_Type type = py_newtype("VrStereoConfig", tp_object, mod, NULL);
     py_bindmagic(type, __new__, VrStereoConfig__new__);
     py_bindmagic(type, __init__, VrStereoConfig__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", VrStereoConfig__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "projection", VrStereoConfig__get_projection, NULL);
     py_bindproperty(type, "viewOffset", VrStereoConfig__get_viewOffset, NULL);
     py_bindproperty(type, "leftLensCenter", VrStereoConfig__get_leftLensCenter, NULL);
@@ -3703,8 +3703,8 @@ static py_Type register__FilePathList(py_GlobalRef mod) {
     py_Type type = py_newtype("FilePathList", tp_object, mod, NULL);
     py_bindmagic(type, __new__, FilePathList__new__);
     py_bindmagic(type, __init__, FilePathList__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", FilePathList__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "capacity", FilePathList__get_capacity, FilePathList__set_capacity);
     py_bindproperty(type, "count", FilePathList__get_count, FilePathList__set_count);
     py_bindproperty(type, "paths", FilePathList__get_paths, FilePathList__set_paths);
@@ -3777,8 +3777,8 @@ static py_Type register__AutomationEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("AutomationEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, AutomationEvent__new__);
     py_bindmagic(type, __init__, AutomationEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", AutomationEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "frame", AutomationEvent__get_frame, AutomationEvent__set_frame);
     py_bindproperty(type, "type", AutomationEvent__get_type, AutomationEvent__set_type);
     py_bindproperty(type, "params", AutomationEvent__get_params, NULL);
@@ -3860,8 +3860,8 @@ static py_Type register__AutomationEventList(py_GlobalRef mod) {
     py_Type type = py_newtype("AutomationEventList", tp_object, mod, NULL);
     py_bindmagic(type, __new__, AutomationEventList__new__);
     py_bindmagic(type, __init__, AutomationEventList__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", AutomationEventList__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "capacity", AutomationEventList__get_capacity, AutomationEventList__set_capacity);
     py_bindproperty(type, "count", AutomationEventList__get_count, AutomationEventList__set_count);
     py_bindproperty(type, "events", AutomationEventList__get_events, AutomationEventList__set_events);

@@ -12,13 +12,13 @@ T = TypeVar('T', bound='Light2D')
 class Lightmap:
     def __init__(self, width: int, height: int) -> None:
         self.image = rl.GenImageColor(width, height, Colors.Blank)
-        rl.ImageFormat(self.image.addr(), rl.PIXELFORMAT_UNCOMPRESSED_R32G32B32A32)
+        rl.ImageFormat(self.image.__address__(), rl.PIXELFORMAT_UNCOMPRESSED_R32G32B32A32)
         self.texture = rl.LoadTextureFromImage(self.image)
         # lights
         self.lights = []
 
     def update(self):
-        rl.ImageClearBackground(self.image.addr(), Colors.Black)
+        rl.ImageClearBackground(self.image.__address__(), Colors.Black)
         for light in self.lights:
             light._bake(self.image)
         rl.UpdateTexture(self.texture, self.image.data)
@@ -48,7 +48,7 @@ class Light2D(Node):
 
 class GlobalLight2D(Light2D):
     def _bake(self, image: rl.Image) -> None:
-        _bake_global_light(image.addr(), self.color, self.intensity)
+        _bake_global_light(image.__address__(), self.color, self.intensity)
 
 
 class PointLight2D(Light2D):
@@ -57,7 +57,7 @@ class PointLight2D(Light2D):
     def _bake(self, image: rl.Image) -> None:
         screen_pos = _g.world_to_viewport.transform_point(self.global_position)
         x, y = round(screen_pos.x), round(screen_pos.y)
-        _bake_point_light(image.addr(), self.color, self.intensity, x, y, self.radius)
+        _bake_point_light(image.__address__(), self.color, self.intensity, x, y, self.radius)
 
 
 if TYPE_CHECKING:
@@ -85,4 +85,4 @@ class ParticleLight2D(Light2D):
             scale_ratio = t._s().length() / p._init_t._s().length()
             radius = round(self.radius * scale_ratio)
             intensity = color.a / 255 * self.intensity
-            _bake_point_light(image.addr(), color, intensity, x, y, radius)
+            _bake_point_light(image.__address__(), color, intensity, x, y, radius)

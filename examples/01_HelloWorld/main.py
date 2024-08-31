@@ -12,6 +12,10 @@ class MyGame(cl.Game):
         label.position = cl.vec2(cl.g.viewport_width, cl.g.viewport_height) / 2
         print('label.position:', label.position)
 
+        import box2d
+        ver = box2d.b2GetVersion()
+        print(ver.major, ver.minor, ver.revision)
+
     @property
     def title(self):
         return "Hello, World"

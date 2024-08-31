@@ -30,7 +30,7 @@ def _load_font_cjk(path: str) -> rl.Font:
 
 def _load_texture_scaled(path: str, scale: float):
     image = rl.LoadImage(path)
-    rl.ImageResizeNN(image.addr(), int(image.width*scale), int(image.height*scale))
+    rl.ImageResizeNN(image.__address__(), int(image.width*scale), int(image.height*scale))
     texture = rl.LoadTextureFromImage(image)
     rl.UnloadImage(image)
     return texture

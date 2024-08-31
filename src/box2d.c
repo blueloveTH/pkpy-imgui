@@ -87,8 +87,8 @@ static py_Type register__b2Version(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Version", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Version__new__);
     py_bindmagic(type, __init__, b2Version__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Version__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "major", b2Version__get_major, b2Version__set_major);
     py_bindproperty(type, "minor", b2Version__get_minor, b2Version__set_minor);
     py_bindproperty(type, "revision", b2Version__get_revision, b2Version__set_revision);
@@ -150,8 +150,8 @@ static py_Type register__b2Vec2(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Vec2", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Vec2__new__);
     py_bindmagic(type, __init__, b2Vec2__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Vec2__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "x", b2Vec2__get_x, b2Vec2__set_x);
     py_bindproperty(type, "y", b2Vec2__get_y, b2Vec2__set_y);
     return type;
@@ -212,8 +212,8 @@ static py_Type register__b2Rot(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Rot", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Rot__new__);
     py_bindmagic(type, __init__, b2Rot__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Rot__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "c", b2Rot__get_c, b2Rot__set_c);
     py_bindproperty(type, "s", b2Rot__get_s, b2Rot__set_s);
     return type;
@@ -291,8 +291,8 @@ static py_Type register__b2Transform(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Transform", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Transform__new__);
     py_bindmagic(type, __init__, b2Transform__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Transform__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "p", b2Transform__get_p, b2Transform__set_p);
     py_bindproperty(type, "q", b2Transform__get_q, b2Transform__set_q);
     return type;
@@ -369,8 +369,8 @@ static py_Type register__b2Mat22(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Mat22", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Mat22__new__);
     py_bindmagic(type, __init__, b2Mat22__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Mat22__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "cx", b2Mat22__get_cx, b2Mat22__set_cx);
     py_bindproperty(type, "cy", b2Mat22__get_cy, b2Mat22__set_cy);
     return type;
@@ -447,8 +447,8 @@ static py_Type register__b2AABB(py_GlobalRef mod) {
     py_Type type = py_newtype("b2AABB", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2AABB__new__);
     py_bindmagic(type, __init__, b2AABB__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2AABB__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "lowerBound", b2AABB__get_lowerBound, b2AABB__set_lowerBound);
     py_bindproperty(type, "upperBound", b2AABB__get_upperBound, b2AABB__set_upperBound);
     return type;
@@ -539,8 +539,8 @@ static py_Type register__b2RayCastInput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2RayCastInput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2RayCastInput__new__);
     py_bindmagic(type, __init__, b2RayCastInput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2RayCastInput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "origin", b2RayCastInput__get_origin, b2RayCastInput__set_origin);
     py_bindproperty(type, "translation", b2RayCastInput__get_translation, b2RayCastInput__set_translation);
     py_bindproperty(type, "maxFraction", b2RayCastInput__get_maxFraction, b2RayCastInput__set_maxFraction);
@@ -647,8 +647,8 @@ static py_Type register__b2ShapeCastInput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ShapeCastInput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ShapeCastInput__new__);
     py_bindmagic(type, __init__, b2ShapeCastInput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ShapeCastInput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "points", b2ShapeCastInput__get_points, NULL);
     py_bindproperty(type, "count", b2ShapeCastInput__get_count, b2ShapeCastInput__set_count);
     py_bindproperty(type, "radius", b2ShapeCastInput__get_radius, b2ShapeCastInput__set_radius);
@@ -774,8 +774,8 @@ static py_Type register__b2CastOutput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2CastOutput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2CastOutput__new__);
     py_bindmagic(type, __init__, b2CastOutput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2CastOutput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "normal", b2CastOutput__get_normal, b2CastOutput__set_normal);
     py_bindproperty(type, "point", b2CastOutput__get_point, b2CastOutput__set_point);
     py_bindproperty(type, "fraction", b2CastOutput__get_fraction, b2CastOutput__set_fraction);
@@ -861,8 +861,8 @@ static py_Type register__b2MassData(py_GlobalRef mod) {
     py_Type type = py_newtype("b2MassData", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2MassData__new__);
     py_bindmagic(type, __init__, b2MassData__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2MassData__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "mass", b2MassData__get_mass, b2MassData__set_mass);
     py_bindproperty(type, "center", b2MassData__get_center, b2MassData__set_center);
     py_bindproperty(type, "rotationalInertia", b2MassData__get_rotationalInertia, b2MassData__set_rotationalInertia);
@@ -932,8 +932,8 @@ static py_Type register__b2Circle(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Circle", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Circle__new__);
     py_bindmagic(type, __init__, b2Circle__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Circle__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "center", b2Circle__get_center, b2Circle__set_center);
     py_bindproperty(type, "radius", b2Circle__get_radius, b2Circle__set_radius);
     return type;
@@ -1024,8 +1024,8 @@ static py_Type register__b2Capsule(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Capsule", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Capsule__new__);
     py_bindmagic(type, __init__, b2Capsule__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Capsule__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "center1", b2Capsule__get_center1, b2Capsule__set_center1);
     py_bindproperty(type, "center2", b2Capsule__get_center2, b2Capsule__set_center2);
     py_bindproperty(type, "radius", b2Capsule__get_radius, b2Capsule__set_radius);
@@ -1125,8 +1125,8 @@ static py_Type register__b2Polygon(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Polygon", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Polygon__new__);
     py_bindmagic(type, __init__, b2Polygon__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Polygon__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "vertices", b2Polygon__get_vertices, NULL);
     py_bindproperty(type, "normals", b2Polygon__get_normals, NULL);
     py_bindproperty(type, "centroid", b2Polygon__get_centroid, b2Polygon__set_centroid);
@@ -1206,8 +1206,8 @@ static py_Type register__b2Segment(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Segment", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Segment__new__);
     py_bindmagic(type, __init__, b2Segment__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Segment__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "point1", b2Segment__get_point1, b2Segment__set_point1);
     py_bindproperty(type, "point2", b2Segment__get_point2, b2Segment__set_point2);
     return type;
@@ -1323,8 +1323,8 @@ static py_Type register__b2SmoothSegment(py_GlobalRef mod) {
     py_Type type = py_newtype("b2SmoothSegment", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2SmoothSegment__new__);
     py_bindmagic(type, __init__, b2SmoothSegment__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2SmoothSegment__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "ghost1", b2SmoothSegment__get_ghost1, b2SmoothSegment__set_ghost1);
     py_bindproperty(type, "segment", b2SmoothSegment__get_segment, b2SmoothSegment__set_segment);
     py_bindproperty(type, "ghost2", b2SmoothSegment__get_ghost2, b2SmoothSegment__set_ghost2);
@@ -1382,8 +1382,8 @@ static py_Type register__b2Hull(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Hull", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Hull__new__);
     py_bindmagic(type, __init__, b2Hull__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Hull__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "points", b2Hull__get_points, NULL);
     py_bindproperty(type, "count", b2Hull__get_count, b2Hull__set_count);
     return type;
@@ -1502,8 +1502,8 @@ static py_Type register__b2SegmentDistanceResult(py_GlobalRef mod) {
     py_Type type = py_newtype("b2SegmentDistanceResult", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2SegmentDistanceResult__new__);
     py_bindmagic(type, __init__, b2SegmentDistanceResult__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2SegmentDistanceResult__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "closest1", b2SegmentDistanceResult__get_closest1, b2SegmentDistanceResult__set_closest1);
     py_bindproperty(type, "closest2", b2SegmentDistanceResult__get_closest2, b2SegmentDistanceResult__set_closest2);
     py_bindproperty(type, "fraction1", b2SegmentDistanceResult__get_fraction1, b2SegmentDistanceResult__set_fraction1);
@@ -1576,8 +1576,8 @@ static py_Type register__b2DistanceProxy(py_GlobalRef mod) {
     py_Type type = py_newtype("b2DistanceProxy", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2DistanceProxy__new__);
     py_bindmagic(type, __init__, b2DistanceProxy__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2DistanceProxy__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "points", b2DistanceProxy__get_points, NULL);
     py_bindproperty(type, "count", b2DistanceProxy__get_count, b2DistanceProxy__set_count);
     py_bindproperty(type, "radius", b2DistanceProxy__get_radius, b2DistanceProxy__set_radius);
@@ -1641,8 +1641,8 @@ static py_Type register__b2DistanceCache(py_GlobalRef mod) {
     py_Type type = py_newtype("b2DistanceCache", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2DistanceCache__new__);
     py_bindmagic(type, __init__, b2DistanceCache__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2DistanceCache__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "count", b2DistanceCache__get_count, b2DistanceCache__set_count);
     py_bindproperty(type, "indexA", b2DistanceCache__get_indexA, NULL);
     py_bindproperty(type, "indexB", b2DistanceCache__get_indexB, NULL);
@@ -1784,8 +1784,8 @@ static py_Type register__b2DistanceInput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2DistanceInput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2DistanceInput__new__);
     py_bindmagic(type, __init__, b2DistanceInput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2DistanceInput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "proxyA", b2DistanceInput__get_proxyA, b2DistanceInput__set_proxyA);
     py_bindproperty(type, "proxyB", b2DistanceInput__get_proxyB, b2DistanceInput__set_proxyB);
     py_bindproperty(type, "transformA", b2DistanceInput__get_transformA, b2DistanceInput__set_transformA);
@@ -1911,8 +1911,8 @@ static py_Type register__b2DistanceOutput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2DistanceOutput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2DistanceOutput__new__);
     py_bindmagic(type, __init__, b2DistanceOutput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2DistanceOutput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "pointA", b2DistanceOutput__get_pointA, b2DistanceOutput__set_pointA);
     py_bindproperty(type, "pointB", b2DistanceOutput__get_pointB, b2DistanceOutput__set_pointB);
     py_bindproperty(type, "distance", b2DistanceOutput__get_distance, b2DistanceOutput__set_distance);
@@ -2060,8 +2060,8 @@ static py_Type register__b2SimplexVertex(py_GlobalRef mod) {
     py_Type type = py_newtype("b2SimplexVertex", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2SimplexVertex__new__);
     py_bindmagic(type, __init__, b2SimplexVertex__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2SimplexVertex__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "wA", b2SimplexVertex__get_wA, b2SimplexVertex__set_wA);
     py_bindproperty(type, "wB", b2SimplexVertex__get_wB, b2SimplexVertex__set_wB);
     py_bindproperty(type, "w", b2SimplexVertex__get_w, b2SimplexVertex__set_w);
@@ -2183,8 +2183,8 @@ static py_Type register__b2Simplex(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Simplex", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Simplex__new__);
     py_bindmagic(type, __init__, b2Simplex__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Simplex__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "v1", b2Simplex__get_v1, b2Simplex__set_v1);
     py_bindproperty(type, "v2", b2Simplex__get_v2, b2Simplex__set_v2);
     py_bindproperty(type, "v3", b2Simplex__get_v3, b2Simplex__set_v3);
@@ -2347,8 +2347,8 @@ static py_Type register__b2ShapeCastPairInput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ShapeCastPairInput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ShapeCastPairInput__new__);
     py_bindmagic(type, __init__, b2ShapeCastPairInput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ShapeCastPairInput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "proxyA", b2ShapeCastPairInput__get_proxyA, b2ShapeCastPairInput__set_proxyA);
     py_bindproperty(type, "proxyB", b2ShapeCastPairInput__get_proxyB, b2ShapeCastPairInput__set_proxyB);
     py_bindproperty(type, "transformA", b2ShapeCastPairInput__get_transformA, b2ShapeCastPairInput__set_transformA);
@@ -2497,8 +2497,8 @@ static py_Type register__b2Sweep(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Sweep", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Sweep__new__);
     py_bindmagic(type, __init__, b2Sweep__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Sweep__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "localCenter", b2Sweep__get_localCenter, b2Sweep__set_localCenter);
     py_bindproperty(type, "c1", b2Sweep__get_c1, b2Sweep__set_c1);
     py_bindproperty(type, "c2", b2Sweep__get_c2, b2Sweep__set_c2);
@@ -2640,8 +2640,8 @@ static py_Type register__b2TOIInput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2TOIInput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2TOIInput__new__);
     py_bindmagic(type, __init__, b2TOIInput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2TOIInput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "proxyA", b2TOIInput__get_proxyA, b2TOIInput__set_proxyA);
     py_bindproperty(type, "proxyB", b2TOIInput__get_proxyB, b2TOIInput__set_proxyB);
     py_bindproperty(type, "sweepA", b2TOIInput__get_sweepA, b2TOIInput__set_sweepA);
@@ -2707,8 +2707,8 @@ static py_Type register__b2TOIOutput(py_GlobalRef mod) {
     py_Type type = py_newtype("b2TOIOutput", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2TOIOutput__new__);
     py_bindmagic(type, __init__, b2TOIOutput__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2TOIOutput__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "state", b2TOIOutput__get_state, b2TOIOutput__set_state);
     py_bindproperty(type, "t", b2TOIOutput__get_t, b2TOIOutput__set_t);
     return type;
@@ -2909,8 +2909,8 @@ static py_Type register__b2ManifoldPoint(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ManifoldPoint", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ManifoldPoint__new__);
     py_bindmagic(type, __init__, b2ManifoldPoint__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ManifoldPoint__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "point", b2ManifoldPoint__get_point, b2ManifoldPoint__set_point);
     py_bindproperty(type, "anchorA", b2ManifoldPoint__get_anchorA, b2ManifoldPoint__set_anchorA);
     py_bindproperty(type, "anchorB", b2ManifoldPoint__get_anchorB, b2ManifoldPoint__set_anchorB);
@@ -2996,8 +2996,8 @@ static py_Type register__b2Manifold(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Manifold", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Manifold__new__);
     py_bindmagic(type, __init__, b2Manifold__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Manifold__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "points", b2Manifold__get_points, NULL);
     py_bindproperty(type, "normal", b2Manifold__get_normal, b2Manifold__set_normal);
     py_bindproperty(type, "pointCount", b2Manifold__get_pointCount, b2Manifold__set_pointCount);
@@ -3157,8 +3157,8 @@ static py_Type register__b2TreeNode(py_GlobalRef mod) {
     py_Type type = py_newtype("b2TreeNode", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2TreeNode__new__);
     py_bindmagic(type, __init__, b2TreeNode__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2TreeNode__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "aabb", b2TreeNode__get_aabb, b2TreeNode__set_aabb);
     py_bindproperty(type, "categoryBits", b2TreeNode__get_categoryBits, b2TreeNode__set_categoryBits);
     py_bindproperty(type, "child1", b2TreeNode__get_child1, b2TreeNode__set_child1);
@@ -3373,8 +3373,8 @@ static py_Type register__b2DynamicTree(py_GlobalRef mod) {
     py_Type type = py_newtype("b2DynamicTree", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2DynamicTree__new__);
     py_bindmagic(type, __init__, b2DynamicTree__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2DynamicTree__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "nodes", b2DynamicTree__get_nodes, b2DynamicTree__set_nodes);
     py_bindproperty(type, "root", b2DynamicTree__get_root, b2DynamicTree__set_root);
     py_bindproperty(type, "nodeCount", b2DynamicTree__get_nodeCount, b2DynamicTree__set_nodeCount);
@@ -3448,8 +3448,8 @@ static py_Type register__b2WorldId(py_GlobalRef mod) {
     py_Type type = py_newtype("b2WorldId", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2WorldId__new__);
     py_bindmagic(type, __init__, b2WorldId__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2WorldId__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "index1", b2WorldId__get_index1, b2WorldId__set_index1);
     py_bindproperty(type, "revision", b2WorldId__get_revision, b2WorldId__set_revision);
     return type;
@@ -3530,8 +3530,8 @@ static py_Type register__b2BodyId(py_GlobalRef mod) {
     py_Type type = py_newtype("b2BodyId", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2BodyId__new__);
     py_bindmagic(type, __init__, b2BodyId__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2BodyId__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "index1", b2BodyId__get_index1, b2BodyId__set_index1);
     py_bindproperty(type, "world0", b2BodyId__get_world0, b2BodyId__set_world0);
     py_bindproperty(type, "revision", b2BodyId__get_revision, b2BodyId__set_revision);
@@ -3613,8 +3613,8 @@ static py_Type register__b2ShapeId(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ShapeId", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ShapeId__new__);
     py_bindmagic(type, __init__, b2ShapeId__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ShapeId__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "index1", b2ShapeId__get_index1, b2ShapeId__set_index1);
     py_bindproperty(type, "world0", b2ShapeId__get_world0, b2ShapeId__set_world0);
     py_bindproperty(type, "revision", b2ShapeId__get_revision, b2ShapeId__set_revision);
@@ -3696,8 +3696,8 @@ static py_Type register__b2JointId(py_GlobalRef mod) {
     py_Type type = py_newtype("b2JointId", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2JointId__new__);
     py_bindmagic(type, __init__, b2JointId__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2JointId__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "index1", b2JointId__get_index1, b2JointId__set_index1);
     py_bindproperty(type, "world0", b2JointId__get_world0, b2JointId__set_world0);
     py_bindproperty(type, "revision", b2JointId__get_revision, b2JointId__set_revision);
@@ -3779,8 +3779,8 @@ static py_Type register__b2ChainId(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ChainId", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ChainId__new__);
     py_bindmagic(type, __init__, b2ChainId__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ChainId__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "index1", b2ChainId__get_index1, b2ChainId__set_index1);
     py_bindproperty(type, "world0", b2ChainId__get_world0, b2ChainId__set_world0);
     py_bindproperty(type, "revision", b2ChainId__get_revision, b2ChainId__set_revision);
@@ -3911,8 +3911,8 @@ static py_Type register__b2RayResult(py_GlobalRef mod) {
     py_Type type = py_newtype("b2RayResult", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2RayResult__new__);
     py_bindmagic(type, __init__, b2RayResult__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2RayResult__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "shapeId", b2RayResult__get_shapeId, b2RayResult__set_shapeId);
     py_bindproperty(type, "point", b2RayResult__get_point, b2RayResult__set_point);
     py_bindproperty(type, "normal", b2RayResult__get_normal, b2RayResult__set_normal);
@@ -4194,8 +4194,8 @@ static py_Type register__b2WorldDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2WorldDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2WorldDef__new__);
     py_bindmagic(type, __init__, b2WorldDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2WorldDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "gravity", b2WorldDef__get_gravity, b2WorldDef__set_gravity);
     py_bindproperty(type, "restitutionThreshold", b2WorldDef__get_restitutionThreshold, b2WorldDef__set_restitutionThreshold);
     py_bindproperty(type, "contactPushoutVelocity", b2WorldDef__get_contactPushoutVelocity, b2WorldDef__set_contactPushoutVelocity);
@@ -4539,8 +4539,8 @@ static py_Type register__b2BodyDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2BodyDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2BodyDef__new__);
     py_bindmagic(type, __init__, b2BodyDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2BodyDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "type", b2BodyDef__get_type, b2BodyDef__set_type);
     py_bindproperty(type, "position", b2BodyDef__get_position, b2BodyDef__set_position);
     py_bindproperty(type, "rotation", b2BodyDef__get_rotation, b2BodyDef__set_rotation);
@@ -4637,8 +4637,8 @@ static py_Type register__b2Filter(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Filter", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Filter__new__);
     py_bindmagic(type, __init__, b2Filter__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Filter__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "categoryBits", b2Filter__get_categoryBits, b2Filter__set_categoryBits);
     py_bindproperty(type, "maskBits", b2Filter__get_maskBits, b2Filter__set_maskBits);
     py_bindproperty(type, "groupIndex", b2Filter__get_groupIndex, b2Filter__set_groupIndex);
@@ -4704,8 +4704,8 @@ static py_Type register__b2QueryFilter(py_GlobalRef mod) {
     py_Type type = py_newtype("b2QueryFilter", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2QueryFilter__new__);
     py_bindmagic(type, __init__, b2QueryFilter__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2QueryFilter__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "categoryBits", b2QueryFilter__get_categoryBits, b2QueryFilter__set_categoryBits);
     py_bindproperty(type, "maskBits", b2QueryFilter__get_maskBits, b2QueryFilter__set_maskBits);
     return type;
@@ -4947,8 +4947,8 @@ static py_Type register__b2ShapeDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ShapeDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ShapeDef__new__);
     py_bindmagic(type, __init__, b2ShapeDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ShapeDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "userData", b2ShapeDef__get_userData, b2ShapeDef__set_userData);
     py_bindproperty(type, "friction", b2ShapeDef__get_friction, b2ShapeDef__set_friction);
     py_bindproperty(type, "restitution", b2ShapeDef__get_restitution, b2ShapeDef__set_restitution);
@@ -5114,8 +5114,8 @@ static py_Type register__b2ChainDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ChainDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ChainDef__new__);
     py_bindmagic(type, __init__, b2ChainDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ChainDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "userData", b2ChainDef__get_userData, b2ChainDef__set_userData);
     py_bindproperty(type, "points", b2ChainDef__get_points, NULL);
     py_bindproperty(type, "count", b2ChainDef__get_count, b2ChainDef__set_count);
@@ -5462,8 +5462,8 @@ static py_Type register__b2Profile(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Profile", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Profile__new__);
     py_bindmagic(type, __init__, b2Profile__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Profile__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "step", b2Profile__get_step, b2Profile__set_step);
     py_bindproperty(type, "pairs", b2Profile__get_pairs, b2Profile__set_pairs);
     py_bindproperty(type, "collide", b2Profile__get_collide, b2Profile__set_collide);
@@ -5699,8 +5699,8 @@ static py_Type register__b2Counters(py_GlobalRef mod) {
     py_Type type = py_newtype("b2Counters", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2Counters__new__);
     py_bindmagic(type, __init__, b2Counters__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2Counters__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "staticBodyCount", b2Counters__get_staticBodyCount, b2Counters__set_staticBodyCount);
     py_bindproperty(type, "bodyCount", b2Counters__get_bodyCount, b2Counters__set_bodyCount);
     py_bindproperty(type, "shapeCount", b2Counters__get_shapeCount, b2Counters__set_shapeCount);
@@ -6027,8 +6027,8 @@ static py_Type register__b2DistanceJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2DistanceJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2DistanceJointDef__new__);
     py_bindmagic(type, __init__, b2DistanceJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2DistanceJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2DistanceJointDef__get_bodyIdA, b2DistanceJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2DistanceJointDef__get_bodyIdB, b2DistanceJointDef__set_bodyIdB);
     py_bindproperty(type, "localAnchorA", b2DistanceJointDef__get_localAnchorA, b2DistanceJointDef__set_localAnchorA);
@@ -6248,8 +6248,8 @@ static py_Type register__b2MotorJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2MotorJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2MotorJointDef__new__);
     py_bindmagic(type, __init__, b2MotorJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2MotorJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2MotorJointDef__get_bodyIdA, b2MotorJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2MotorJointDef__get_bodyIdB, b2MotorJointDef__set_bodyIdB);
     py_bindproperty(type, "linearOffset", b2MotorJointDef__get_linearOffset, b2MotorJointDef__set_linearOffset);
@@ -6448,8 +6448,8 @@ static py_Type register__b2MouseJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2MouseJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2MouseJointDef__new__);
     py_bindmagic(type, __init__, b2MouseJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2MouseJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2MouseJointDef__get_bodyIdA, b2MouseJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2MouseJointDef__get_bodyIdB, b2MouseJointDef__set_bodyIdB);
     py_bindproperty(type, "target", b2MouseJointDef__get_target, b2MouseJointDef__set_target);
@@ -6795,8 +6795,8 @@ static py_Type register__b2PrismaticJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2PrismaticJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2PrismaticJointDef__new__);
     py_bindmagic(type, __init__, b2PrismaticJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2PrismaticJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2PrismaticJointDef__get_bodyIdA, b2PrismaticJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2PrismaticJointDef__get_bodyIdB, b2PrismaticJointDef__set_bodyIdB);
     py_bindproperty(type, "localAnchorA", b2PrismaticJointDef__get_localAnchorA, b2PrismaticJointDef__set_localAnchorA);
@@ -7143,8 +7143,8 @@ static py_Type register__b2RevoluteJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2RevoluteJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2RevoluteJointDef__new__);
     py_bindmagic(type, __init__, b2RevoluteJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2RevoluteJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2RevoluteJointDef__get_bodyIdA, b2RevoluteJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2RevoluteJointDef__get_bodyIdB, b2RevoluteJointDef__set_bodyIdB);
     py_bindproperty(type, "localAnchorA", b2RevoluteJointDef__get_localAnchorA, b2RevoluteJointDef__set_localAnchorA);
@@ -7401,8 +7401,8 @@ static py_Type register__b2WeldJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2WeldJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2WeldJointDef__new__);
     py_bindmagic(type, __init__, b2WeldJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2WeldJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2WeldJointDef__get_bodyIdA, b2WeldJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2WeldJointDef__get_bodyIdB, b2WeldJointDef__set_bodyIdB);
     py_bindproperty(type, "localAnchorA", b2WeldJointDef__get_localAnchorA, b2WeldJointDef__set_localAnchorA);
@@ -7737,8 +7737,8 @@ static py_Type register__b2WheelJointDef(py_GlobalRef mod) {
     py_Type type = py_newtype("b2WheelJointDef", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2WheelJointDef__new__);
     py_bindmagic(type, __init__, b2WheelJointDef__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2WheelJointDef__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "bodyIdA", b2WheelJointDef__get_bodyIdA, b2WheelJointDef__set_bodyIdA);
     py_bindproperty(type, "bodyIdB", b2WheelJointDef__get_bodyIdB, b2WheelJointDef__set_bodyIdB);
     py_bindproperty(type, "localAnchorA", b2WheelJointDef__get_localAnchorA, b2WheelJointDef__set_localAnchorA);
@@ -7832,8 +7832,8 @@ static py_Type register__b2SensorBeginTouchEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("b2SensorBeginTouchEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2SensorBeginTouchEvent__new__);
     py_bindmagic(type, __init__, b2SensorBeginTouchEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2SensorBeginTouchEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "sensorShapeId", b2SensorBeginTouchEvent__get_sensorShapeId, b2SensorBeginTouchEvent__set_sensorShapeId);
     py_bindproperty(type, "visitorShapeId", b2SensorBeginTouchEvent__get_visitorShapeId, b2SensorBeginTouchEvent__set_visitorShapeId);
     return type;
@@ -7912,8 +7912,8 @@ static py_Type register__b2SensorEndTouchEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("b2SensorEndTouchEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2SensorEndTouchEvent__new__);
     py_bindmagic(type, __init__, b2SensorEndTouchEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2SensorEndTouchEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "sensorShapeId", b2SensorEndTouchEvent__get_sensorShapeId, b2SensorEndTouchEvent__set_sensorShapeId);
     py_bindproperty(type, "visitorShapeId", b2SensorEndTouchEvent__get_visitorShapeId, b2SensorEndTouchEvent__set_visitorShapeId);
     return type;
@@ -8010,8 +8010,8 @@ static py_Type register__b2SensorEvents(py_GlobalRef mod) {
     py_Type type = py_newtype("b2SensorEvents", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2SensorEvents__new__);
     py_bindmagic(type, __init__, b2SensorEvents__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2SensorEvents__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "beginEvents", b2SensorEvents__get_beginEvents, b2SensorEvents__set_beginEvents);
     py_bindproperty(type, "endEvents", b2SensorEvents__get_endEvents, b2SensorEvents__set_endEvents);
     py_bindproperty(type, "beginCount", b2SensorEvents__get_beginCount, b2SensorEvents__set_beginCount);
@@ -8092,8 +8092,8 @@ static py_Type register__b2ContactBeginTouchEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ContactBeginTouchEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ContactBeginTouchEvent__new__);
     py_bindmagic(type, __init__, b2ContactBeginTouchEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ContactBeginTouchEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "shapeIdA", b2ContactBeginTouchEvent__get_shapeIdA, b2ContactBeginTouchEvent__set_shapeIdA);
     py_bindproperty(type, "shapeIdB", b2ContactBeginTouchEvent__get_shapeIdB, b2ContactBeginTouchEvent__set_shapeIdB);
     return type;
@@ -8172,8 +8172,8 @@ static py_Type register__b2ContactEndTouchEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ContactEndTouchEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ContactEndTouchEvent__new__);
     py_bindmagic(type, __init__, b2ContactEndTouchEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ContactEndTouchEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "shapeIdA", b2ContactEndTouchEvent__get_shapeIdA, b2ContactEndTouchEvent__set_shapeIdA);
     py_bindproperty(type, "shapeIdB", b2ContactEndTouchEvent__get_shapeIdB, b2ContactEndTouchEvent__set_shapeIdB);
     return type;
@@ -8310,8 +8310,8 @@ static py_Type register__b2ContactHitEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ContactHitEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ContactHitEvent__new__);
     py_bindmagic(type, __init__, b2ContactHitEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ContactHitEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "shapeIdA", b2ContactHitEvent__get_shapeIdA, b2ContactHitEvent__set_shapeIdA);
     py_bindproperty(type, "shapeIdB", b2ContactHitEvent__get_shapeIdB, b2ContactHitEvent__set_shapeIdB);
     py_bindproperty(type, "point", b2ContactHitEvent__get_point, b2ContactHitEvent__set_point);
@@ -8443,8 +8443,8 @@ static py_Type register__b2ContactEvents(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ContactEvents", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ContactEvents__new__);
     py_bindmagic(type, __init__, b2ContactEvents__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ContactEvents__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "beginEvents", b2ContactEvents__get_beginEvents, b2ContactEvents__set_beginEvents);
     py_bindproperty(type, "endEvents", b2ContactEvents__get_endEvents, b2ContactEvents__set_endEvents);
     py_bindproperty(type, "hitEvents", b2ContactEvents__get_hitEvents, b2ContactEvents__set_hitEvents);
@@ -8559,8 +8559,8 @@ static py_Type register__b2BodyMoveEvent(py_GlobalRef mod) {
     py_Type type = py_newtype("b2BodyMoveEvent", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2BodyMoveEvent__new__);
     py_bindmagic(type, __init__, b2BodyMoveEvent__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2BodyMoveEvent__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "transform", b2BodyMoveEvent__get_transform, b2BodyMoveEvent__set_transform);
     py_bindproperty(type, "bodyId", b2BodyMoveEvent__get_bodyId, b2BodyMoveEvent__set_bodyId);
     py_bindproperty(type, "userData", b2BodyMoveEvent__get_userData, b2BodyMoveEvent__set_userData);
@@ -8627,8 +8627,8 @@ static py_Type register__b2BodyEvents(py_GlobalRef mod) {
     py_Type type = py_newtype("b2BodyEvents", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2BodyEvents__new__);
     py_bindmagic(type, __init__, b2BodyEvents__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2BodyEvents__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "moveEvents", b2BodyEvents__get_moveEvents, b2BodyEvents__set_moveEvents);
     py_bindproperty(type, "moveCount", b2BodyEvents__get_moveCount, b2BodyEvents__set_moveCount);
     return type;
@@ -8730,8 +8730,8 @@ static py_Type register__b2ContactData(py_GlobalRef mod) {
     py_Type type = py_newtype("b2ContactData", tp_object, mod, NULL);
     py_bindmagic(type, __new__, b2ContactData__new__);
     py_bindmagic(type, __init__, b2ContactData__init__);
+    py_bindmethod(type, "__address__", struct__address__);
     py_bindmethod(type, "copy", b2ContactData__copy__);
-    py_bindmethod(type, "addr", struct__address__);
     py_bindproperty(type, "shapeIdA", b2ContactData__get_shapeIdA, b2ContactData__set_shapeIdA);
     py_bindproperty(type, "shapeIdB", b2ContactData__get_shapeIdB, b2ContactData__set_shapeIdB);
     py_bindproperty(type, "manifold", b2ContactData__get_manifold, b2ContactData__set_manifold);

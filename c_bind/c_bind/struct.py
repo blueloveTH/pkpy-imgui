@@ -85,8 +85,8 @@ def gen_struct(w: Writer, pyi_w: Writer, struct: Struct):
 
     w.write(f'py_bindmagic(type, __new__, {name}__new__);')
     w.write(f'py_bindmagic(type, __init__, {name}__init__);')
+    w.write(f'py_bindmethod(type, "__address__", struct__address__);')
     w.write(f'py_bindmethod(type, "copy", {name}__copy__);')
-    w.write(f'py_bindmethod(type, "addr", struct__address__);')
 
     for field in struct.fields:
         cvt = get_converter(field.type)
@@ -116,8 +116,8 @@ def gen_struct(w: Writer, pyi_w: Writer, struct: Struct):
     pyi_w.write(f'def __init__(self): ...')
     pyi_w.write(f'@overload')
     pyi_w.write(f'def __init__(self, {", ".join(py_args)}): ...')
+    pyi_w.write(f'def __address__(self) -> int: ...')
     pyi_w.write(f"def copy(self) -> '{name}': ...")
-    pyi_w.write(f'def addr(self) -> int: ...')
     pyi_w.write('')
     pyi_w.dedent()
 
