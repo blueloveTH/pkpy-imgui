@@ -1,4 +1,4 @@
-import box2d
+from typing import TYPE_CHECKING
 from collections import defaultdict
 from linalg import *
 import raylib as rl
@@ -9,6 +9,9 @@ from .._node import Node
 from .._colors import Colors
 
 from .. import g as _g
+
+if TYPE_CHECKING:
+    import box2d
 
 class _Vertex:
     def __init__(self, x: int, y: int, neighbors: list, count: int):

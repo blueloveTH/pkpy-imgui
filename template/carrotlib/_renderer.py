@@ -67,8 +67,7 @@ def draw_text(font: rl.Font, pos: vec2, text: str, font_size: int, color: rl.Col
     origin = origin or vec2(0.5, 0.5)
     rl.SetTextLineSpacing(line_spacing + font_size)
     size = rl.MeasureTextEx(font, text, font_size, spacing)
-    pos.x -= size.x * origin.x
-    pos.y -= size.y * origin.y
+    pos -= size * origin
     rl.DrawTextEx(font, text, pos, font_size, spacing, color)
 
 

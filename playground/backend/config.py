@@ -3,9 +3,9 @@ import json, os
 
 @dataclass
 class Config:
-    project: str = "examples/01_HelloWorld"
+    project: str = "examples/TimeStone"
     use_precompile: bool = False
-    use_playground_console: bool = True
+    use_playground_console: bool = False
     use_release_build: bool = False
 
     def save(self):

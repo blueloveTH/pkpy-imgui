@@ -8,7 +8,7 @@ from .config import config
 assert sys.platform in ["win32", "linux", "darwin"]
 
 if sys.platform == "win32":
-    FRAMEWORK_EXE_PATH = os.path.abspath("build/win32/Release/Game.exe")
+    FRAMEWORK_EXE_PATH = os.path.abspath("build/win32/Game.exe")
 else:
     FRAMEWORK_EXE_PATH = os.path.abspath(f"build/{sys.platform}/Game")
 
@@ -22,20 +22,25 @@ def compile_framework():
         if task.returncode != 0:
             return
 
-    shutil.rmtree(FRAMEWORK_BUILD_DIR, ignore_errors=True)
+    # shutil.rmtree(FRAMEWORK_BUILD_DIR, ignore_errors=True)
     os.makedirs(FRAMEWORK_BUILD_DIR, exist_ok=True)
     if config.use_release_build:
-        build_type = '-DCMAKE_BUILD_TYPE=Release'
+        build_type = 'Release'
     else:
-        build_type = '-DCMAKE_BUILD_TYPE=Debug'
-    task = TaskCommand(["cmake", "../..", build_type], cwd=FRAMEWORK_BUILD_DIR)
+        build_type = 'Debug'
+    task = TaskCommand(["cmake", "../..", "-DCMAKE_BUILD_TYPE=" + build_type], cwd=FRAMEWORK_BUILD_DIR)
     yield from task
     if task.returncode != 0:
         return
-    task = TaskCommand(["cmake", "--build", ".", "--config", "Release"], cwd=FRAMEWORK_BUILD_DIR)
+    task = TaskCommand(["cmake", "--build", ".", "--config", build_type], cwd=FRAMEWORK_BUILD_DIR)
     yield from task
     if task.returncode != 0:
         return
+
+    if sys.platform == "win32":
+        exe_path = os.path.join(FRAMEWORK_BUILD_DIR, build_type, "Game.exe")
+        shutil.copy(exe_path, FRAMEWORK_EXE_PATH)
+
     assert is_framework_compiled()
 
     this_is_a_release_build = os.path.join(FRAMEWORK_BUILD_DIR, "this_is_a_release_build")

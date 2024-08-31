@@ -2,7 +2,7 @@ import raylib as rl
 from linalg import vec2
 from typing import Literal
 
-from _carrotlib import _rlDrawTextBoxed
+# from _carrotlib import _rlDrawTextBoxed
 
 from ._node import Node
 from ._colors import Colors

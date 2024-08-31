@@ -1,4 +1,3 @@
-from c import int_p
 import raylib as rl
 from linalg import vec2
 
@@ -29,9 +28,6 @@ def fast_apply(f: callable, a: list | tuple, *args) -> None:
 
 def vibrate(milliseconds: int, amplitude: int = -1):
     """Vibrate the device."""
-
-def _request_hot_reload():
-    ...
 
 def _get_cjk_codepoints() -> tuple[int_p, int]:
     ...

@@ -1,7 +1,7 @@
 import raylib as rl
 from typing import TypeVar, TYPE_CHECKING
 from linalg import vec2, mat3x3
-from _carrotlib import _bake_global_light, _bake_point_light
+# from _carrotlib import _bake_global_light, _bake_point_light
 
 from ._colors import Colors
 from ._node import Node

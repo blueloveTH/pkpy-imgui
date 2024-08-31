@@ -9,9 +9,12 @@ class MyGame(cl.Game):
         label.text = "Hello, world"
         label.font_size = 100
         label.color = cl.Colors.Black
-        
-        label.position.x = cl.g.viewport_width / 2
-        label.position.y = cl.g.viewport_height / 2
+        label.position = cl.vec2(cl.g.viewport_width, cl.g.viewport_height) / 2
+        print('label.position:', label.position)
+
+    @property
+    def title(self):
+        return "Hello, World"
 
     @property
     def design_size(self):

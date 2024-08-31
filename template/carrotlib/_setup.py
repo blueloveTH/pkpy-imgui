@@ -1,11 +1,8 @@
 import sys
-import box2d
 from linalg import *
 import raylib as rl
 
-import imgui
-
-from _carrotlib import fast_apply, GRAPHICS_API_OPENGL_33, GRAPHICS_API_OPENGL_ES2, GRAPHICS_API_OPENGL_ES3, _request_hot_reload
+from _carrotlib import fast_apply, GRAPHICS_API_OPENGL_33, GRAPHICS_API_OPENGL_ES2, GRAPHICS_API_OPENGL_ES3
 
 from . import g
 from ._node import Node
@@ -13,7 +10,6 @@ from .controls import Control
 from ._renderer import DebugDraw
 from ._sound import _unload_all_sound_aliases, _update_managed_sounds_coro, _count_managed_sounds
 from ._resources import _unload_all_resources
-from .debug import DebugWindow
 from ._viewport import get_mouse_position
 from ._material import UnlitMaterial
 
@@ -25,6 +21,7 @@ class Game:
     def __init__(self):
         assert Game.instance is None
         Game.instance = self
+        self._hot_reload_requested = False
 
     @property
     def design_size(self) -> tuple[int, int]:
@@ -44,9 +41,6 @@ class Game:
         if not rl.IsWindowReady():
             rl.InitWindow(self.window_size[0], self.window_size[1], self.title)
             rl.InitAudioDevice()
-            imgui.rlImGuiSetup(True)
-            imgui.GetIO().IniFilename = None    # disable imgui.ini
-
             if self.window_size == (0, 0):
                 rl.ToggleBorderlessWindowed()
 
@@ -92,9 +86,8 @@ class Game:
         #############################################
         g.rl_camera_2d = rl.Camera2D(vec2(0,0), vec2(0,0), 0, g.viewport_scale)
         g.root = Node('root')
-        g.b2_world = box2d.World()
-        g.b2_world.set_debug_draw(DebugDraw())
-        g.debug_window = DebugWindow()
+        # g.b2_world = box2d.World()
+        # g.b2_world.set_debug_draw(DebugDraw())
         g.default_font = rl.GetFontDefault()
         g.default_font_size = 20
         g.default_material = UnlitMaterial()
@@ -111,7 +104,7 @@ class Game:
         fast_apply(Node._ready, all_nodes)
 
         # 1. physics update
-        g.b2_world.step(rl.GetFrameTime(), 6, 2)
+        # g.b2_world.step(rl.GetFrameTime(), 6, 2)
 
         # 2. input events
         all_nodes.clear()
@@ -135,7 +128,7 @@ class Game:
 
         # 4. render
         # update world_to_viewport
-        self.PIXEL_UNIT_TRANSFORM.matmul(g.world_to_camera, out=g.world_to_viewport)
+        self.PIXEL_UNIT_TRANSFORM.matmul(g.world_to_camera, g.world_to_viewport)
 
         if g.default_lightmap:
             g.default_lightmap.update()
@@ -161,35 +154,27 @@ class Game:
         # 	e_pairBit				= 0x0008,	///< draw broad-phase pairs
         # 	e_centerOfMassBit		= 0x0010	///< draw center of mass frame
         # };
-        if g.debug_draw_box2d:
-            g.b2_world.debug_draw(0x0001 | 0x0002 | 0x0008 | 0x0010)
+        # if g.debug_draw_box2d:
+        #     g.b2_world.debug_draw(0x0001 | 0x0002 | 0x0008 | 0x0010)
 
         # 5. render ui
         g.is_rendering_ui = True
         fast_apply(Node._render_ui, all_nodes)
         g.is_rendering_ui = False
 
-        g.debug_window.render_selected_box()
+        # g.debug_window.render_selected_box()
         rl.EndMode2D()
 
         # right top
         rl.DrawFPS(rl.GetScreenWidth()-100, 0)
 
         # 6. submit
-        imgui.NewFrame()
-        g.debug_window.variables['mouse_pos'] = get_mouse_position()
-        g.debug_window.variables['gesture'] = rl.Gesture_NAMES[rl.GetGestureDetected()]
-        g.debug_window.variables['hovered_control'] = g.hovered_control
-        g.debug_window.variables['managed_sounds'] = _count_managed_sounds()
-        g.debug_window.variables['world_to_viewport'] = g.world_to_viewport
-        g.debug_window.render()
-        imgui.Render()
         rl.EndDrawing()
 
         # hot reload feature
         if rl.IsKeyPressed(rl.KEY_F5):
             self._unload_resources()
-            _request_hot_reload()
+            self._hot_reload_requested = True
 
     def _unload_resources(self):
         _unload_all_sound_aliases()
@@ -201,6 +186,5 @@ class Game:
 
     def on_destroy(self):
         self._unload_resources()
-        imgui.rlImGuiShutdown()
         rl.CloseAudioDevice()
         rl.CloseWindow()

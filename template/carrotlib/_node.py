@@ -1,9 +1,8 @@
 from linalg import *
 import raylib as rl
-import box2d
 import math
 from typing import Literal, Iterable
-from __builtins import next
+from pkpy import next
 
 from _carrotlib import fast_apply
 from . import g as _g
@@ -56,7 +55,7 @@ class Node:
 
     @property
     def global_position(self) -> vec2:
-        return self.transform()._t()
+        return self.transform().t()
     
     @global_position.setter
     def global_position(self, value: vec2):
@@ -114,11 +113,11 @@ class Node:
             node = node.children[name]
         return node
     
-    def create_body(self, with_callback=True) -> box2d.Body:
-        """Create a box2d body attached to this node."""
-        b2_body = box2d.Body(_g.b2_world, node=self, with_callback=with_callback)
-        self._raii_objects.append(b2_body)
-        return b2_body
+    # def create_body(self, with_callback=True) -> box2d.Body:
+    #     """Create a box2d body attached to this node."""
+    #     b2_body = box2d.Body(_g.b2_world, node=self, with_callback=with_callback)
+    #     self._raii_objects.append(b2_body)
+    #     return b2_body
     
     def transform(self) -> mat3x3:
         """Get the transform matrix from local space to global space."""
@@ -126,7 +125,7 @@ class Node:
             return mat3x3.identity()
         t = self.parent.transform()
         self._cached_transform.copy_trs_(self.position, self.rotation, self.scale)
-        t.matmul(self._cached_transform, out=t)
+        t.matmul(self._cached_transform, t)
         return t
 
     def _ready(self):
