@@ -86,11 +86,25 @@ class StructConverter(Converter):
     def py_T(self) -> str:
         return self.T
     
+class EnumConverter(Converter):
+    def __init__(self, T: str):
+        super().__init__(T)
+    def c2py(self, w: Writer, out: str, expr: str):
+        w.write(f'py_newint({out}, (py_i64){expr});')
+    def py2c(self, w: Writer, out: str, expr: str):
+        w.write(f'if(!py_checkint({expr})) return false;')
+        w.write(f'{out} = ({self.T})py_toint({expr});')
+
+    @property
+    def py_T(self) -> str:
+        return 'int'
+    
 class VoidConverter(Converter):
     def c2py(self, w: Writer, out: str, expr: str):
         w.write(f'py_newnone({out});')
     def py2c(self, w: Writer, out: str, expr: str):
-        raise NotImplementedError
+        # raise NotImplementedError
+        w.write(f'? // VoidConverter.py2c is not implemented')
     
     @property
     def py_T(self) -> str:
@@ -138,6 +152,10 @@ _CONVERTERS['c11_array2d'] = StructConverter('c11_array2d', 'tp_array2d')
 def set_linalg_converter(T: str, py_T: str):
     assert py_T in LINALG_TYPES
     _CONVERTERS[T] = BuiltinVectorConverter(T, py_T)
+
+def set_enum_converters(enums: list[str]):
+    for T in enums:
+        _CONVERTERS[T] = EnumConverter(T)
 
 def get_converter(T: str) -> Converter:
     if T in _CONVERTERS:

@@ -4,3 +4,6 @@
 [submodule "3rd/raylib"]
 	path = 3rd/raylib
 	url = https://github.com/blueloveTH/raylib
+[submodule "3rd/box2d"]
+	path = 3rd/box2d
+	url = https://github.com/erincatto/box2d.git

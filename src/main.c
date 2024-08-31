@@ -50,7 +50,7 @@ void ios_ready(){
     SetLoadFileDataCallback(platform_load_asset);
     SetLoadFileTextCallback(cl_importfile);
 
-    // py__add_module_box2d();
+    py__add_module_box2d();
     py__add_module_raylib();
     py__add_module__ct();
 

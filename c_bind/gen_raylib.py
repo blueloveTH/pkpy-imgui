@@ -8,9 +8,8 @@ lib = Library.from_raylib(data)
 set_linalg_converter('Vector2', 'vec2')
 set_linalg_converter('Vector3', 'vec3')
 
-lib.build()
-
-import shutil
-
-shutil.copy('raylib.c', '../src/raylib.c')
-shutil.copy('raylib.pyi', '../include/typings/raylib.pyi')
+lib.build(
+    includes=['raylib.h'],
+    glue_dir='../src',
+    stub_dir='../include/typings'
+)

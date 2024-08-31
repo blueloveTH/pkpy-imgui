@@ -15,8 +15,8 @@ class EnumValue:
 @dataclass
 class Struct:
     name: str
-    desc: str
-    fields: list[StructField]
+    desc: str = None
+    fields: list[StructField] = None
 
 @dataclass
 class Alias:

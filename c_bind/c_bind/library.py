@@ -4,6 +4,9 @@ from .enum import gen_enum
 from .struct import gen_struct
 from .function import gen_function
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .meta import Header
 
 class Library:
     def __init__(self, name: str) -> None:
@@ -15,7 +18,10 @@ class Library:
         self.functions = [] # type: list[Function]
         self.callbacks = set() # type: set[str]
 
-    def build(self, output_dir: str = '.'):
+    def set_includes(self, includes: list[str]):
+        self.user_includes.extend(includes)
+
+    def build(self, *, glue_dir='.', stub_dir='.', includes: list[str] = None):
         self.remove_unsupported()
 
         w, pyi_w = Writer(), Writer()
@@ -27,7 +33,10 @@ class Library:
 
         w.write('#include "pocketpy.h"')
         w.write(f'#include "string.h"')
-        w.write(f'#include "{self.name}.h"')
+        
+        if includes:
+            for include in includes:
+                w.write(f'#include "{include}"')
 
         w.write('')
         w.write('#define ADD_ENUM(name) py_newint(py_emplacedict(mod, py_name(#name)), name)')
@@ -80,9 +89,9 @@ class Library:
             gen_enum(w, pyi_w, enum)
         w.dedent()
         w.write('}')
-        with open(f'{output_dir}/{self.name}.c', 'w') as f:
+        with open(f'{glue_dir}/{self.name}.c', 'w') as f:
             f.write(str(w))
-        with open(f'{output_dir}/{self.name}.pyi', 'w') as f:
+        with open(f'{stub_dir}/{self.name}.pyi', 'w') as f:
             f.write(str(pyi_w))
 
     def remove_unsupported(self):
@@ -100,7 +109,6 @@ class Library:
         self.functions.clear()
         self.functions.extend(functions)
                 
-
     @staticmethod
     def from_raylib(data: dict):
         self = Library('raylib')
@@ -143,4 +151,45 @@ class Library:
             ))
         for callback in data['callbacks']:
             self.callbacks.add(callback['name'])
+        return self
+    
+    @staticmethod
+    def from_header(name: str, header: 'Header'):
+        from c_bind.meta import schema
+        self = Library(name)
+        for type in header.types:
+            if isinstance(type, schema.NamedFields):
+                if type.is_opaque():
+                    continue
+                else:
+                    self.structs.append(Struct(
+                        name=type.name,
+                        fields=[StructField(
+                            type=field_type,
+                            name=field_name
+                        ) for field_name, field_type in type.fields.items()]
+                    ))
+            elif isinstance(type, schema.Enum):
+                self.enums.append(Enum(
+                    name=type.name,
+                    values=[EnumValue(
+                        name=value,
+                        value=None
+                    ) for value in type.values]
+                ))
+        for k, v in header.type_aliases.items():
+            self.aliases.append(Alias(
+                name=k,
+                type=v
+            ))
+
+        for function in header.functions:
+            self.functions.append(Function(
+                name=function.name,
+                params=[FunctionParam(
+                    type=param,
+                    name=f'_{i}'
+                ) for i, param in enumerate(function.args)],
+                ret_type=function.ret
+            ))
         return self

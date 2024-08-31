@@ -2,7 +2,6 @@
 -std=c11
 -Iinclude/
 -I3rd/pocketpy/include/
--I3rd/imgui/
 -I3rd/raylib/src/
--I3rd/rlImGui/
 -I3rd/naett/include
+-I3rd/box2d/include

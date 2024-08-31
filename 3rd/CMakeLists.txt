@@ -5,7 +5,9 @@ project(3rdparty)
 set(CMAKE_C_STANDARD 11)
 
 option(PK_ENABLE_OS "" ON)
+
 add_subdirectory(pocketpy)
+add_subdirectory(box2d)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} /utf-8 /Ox")
@@ -25,12 +27,14 @@ if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
     target_link_libraries(
         ${PROJECT_NAME}
         pocketpy
+        box2d
         raylib
     )
 else()
     target_link_libraries(
         ${PROJECT_NAME}
         pocketpy
+        box2d
     )
 endif()
 
@@ -39,4 +43,5 @@ target_include_directories(
     PUBLIC
     naett/include
     pocketpy/include
+    box2d/include
 )
