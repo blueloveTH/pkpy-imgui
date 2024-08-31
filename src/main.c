@@ -36,7 +36,13 @@ static char* cl_importfile(const char* path){
 
 void ios_ready(){
     platform_init();
-    py_initialize();
+
+    static bool is_initialized = false;
+
+    if(!is_initialized){
+        is_initialized = true;
+        py_initialize();
+    }
 
     py_callbacks()->print = cl_print;
     py_callbacks()->importfile = cl_importfile;
@@ -147,6 +153,7 @@ int main(int argc, char** argv){
         if(py_tobool(h)){
             py_resetvm();
             memset(&cached, 0, sizeof(cached));
+            platform_log_info("%s\n", "Hot reload started!!");
             return main(argc, argv);
         }
         ios_update();
